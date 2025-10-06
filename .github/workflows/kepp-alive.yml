@@ -1,0 +1,13 @@
+name: Keep HuggingFace Space Alive
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
+  workflow_dispatch:         # allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping HuggingFace Space
+        run: curl -s https://exzort-vinebot-mistral-private-space.hf.space/ > /dev/null
